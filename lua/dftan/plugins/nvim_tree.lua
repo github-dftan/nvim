@@ -1,0 +1,26 @@
+--文件列表插件
+return {
+	{
+		"nvim-tree/nvim-web-devicons",
+		opts = {
+			override = {
+				copilot = {
+					icon = "",
+					color = "#cba6f7", -- Catppuccin.mocha.mauve
+					name = "Copilot",
+				},
+			},
+		},
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		keys = {
+			{ "<leader>e", "<CMD>NvimTreeToggle<CR>", mode = { "n" }, desc = "[NvimTree] Toggle NvimTree" },
+		},
+		opts = {},
+	},
+}

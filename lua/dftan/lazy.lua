@@ -4,7 +4,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
-		"--filter=blob:none",--网络不好下回来的是空壳
+		"--filter=blob:none", --网络不好下回来的是空壳
 		"https://github.com/folke/lazy.nvim.git",
 		"--branch=stable", -- latest stable release
 		lazypath,
@@ -19,5 +19,9 @@ require("lazy").setup({
 	},
 	change_detection = {
 		notify = false,
+	},
+	ui = {
+		-- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
+		border = "rounded",
 	},
 })
