@@ -4,13 +4,28 @@ return {
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "VeryLazy",
+		-- opts = {
+		-- 	suggestion = { enabled = true },
+		-- 	panel = { enabled = true },
+		-- 	filetypes = {
+		-- 		markdown = true,
+		-- 		help = true,
+		-- 	},
+		-- },
 		opts = {
-			suggestion = { enabled = false },
-			panel = { enabled = false },
-			filetypes = {
-				markdown = true,
-				help = true,
+			suggestion = {
+				enabled = true,
+				auto_trigger = true, -- 自动触发建议
+				keymap = {
+					accept = "<C-y>",
+					next = "<C-j>",
+					prev = "<C-k>",
+					dismiss = "<Esc>",
+					accept_line = "<C-i>",
+					accept_word = "<C-l>", -- 你可以自定义
+				},
 			},
+			panel = { enabled = true },
 		},
 	},
 

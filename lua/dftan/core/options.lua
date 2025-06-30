@@ -21,3 +21,6 @@ vim.opt.listchars = {
 	trail = "·", -- 行尾多余空格（trailing space）显示为 “·”（小圆点）
 	nbsp = "␣", -- 不间断空格（non-breakable space, NBSP）显示为 “␣”（特殊空格符号）
 }
+
+
+vim.o.winborder = "rounded" -- 设置窗口边框样式为圆角

@@ -25,7 +25,7 @@ vim.lsp.config['luals'] = {
 		     version = 'LuaJIT',
 		   },
 		   diagnostics = {
-			   globals = {'vim'},
+			   globals = {'vim','Snacks'},
 		   }
 		 }
 	 },
