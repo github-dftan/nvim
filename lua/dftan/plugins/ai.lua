@@ -22,10 +22,10 @@ return {
 					prev = "<C-k>",
 					dismiss = "<Esc>",
 					accept_line = "<C-i>",
-					accept_word = "<C-l>", -- 你可以自定义
+					accept_word = "<C-l>",
 				},
 			},
-			panel = { enabled = true },
+			panel = { enabled = false },
 		},
 	},
 

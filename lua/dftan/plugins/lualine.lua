@@ -2,7 +2,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = {
-		"nvim-tree/nvim-web-devicons",
+		-- "nvim-tree/nvim-web-devicons",
 		"AndreM222/copilot-lualine",
 	},
 	opts = {
@@ -50,7 +50,7 @@ return {
 			separator = { left = "", right = "" },
 			padding = 0,
 		}
---把copilot的状态在lualine中显示出来
+		--把copilot的状态在lualine中显示出来
 		local copilot = {
 			"copilot",
 			show_colors = true,
@@ -67,7 +67,6 @@ return {
 				spinner_color = mocha.mauve,
 			},
 		}
-
 		table.insert(opts.sections.lualine_x, 1, macro_recording)
 		table.insert(opts.sections.lualine_c, copilot)
 

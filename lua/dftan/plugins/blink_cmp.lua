@@ -1,7 +1,7 @@
 --这是一个补全插件
+---@alias blink.cmp.Config table //消除@type blink.cmp.Config警告
 return {
 	"saghen/blink.cmp",
-	event = "InsertEnter",
 	-- optional: provides snippets for the snippet source
 	dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
 	-- dependencies = { "rafamadriz/friendly-snippets" },
@@ -57,7 +57,6 @@ return {
 				auto_show_delay_ms = 500, --500ms后显示文档
 			},
 			keyword = {
-
 				-- 'prefix' will fuzzy match on the text before the cursor
 				-- 'full' will fuzzy match on the text before _and_ after the cursor
 				-- example: 'foo_|_bar' will match 'foo_' for 'prefix' and 'foo__bar' for 'full'
@@ -108,6 +107,7 @@ return {
 					opts = {
 						kind_icon = "",
 						kind_hl = "DevIconCopilot",
+						vim.api.nvim_set_hl(0, "DevIconCopilot", { fg = "#98c379" }),
 					},
 				},
 				cmdline = {

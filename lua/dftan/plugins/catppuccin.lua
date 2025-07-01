@@ -1,12 +1,12 @@
 --颜色主题插件
 return {
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    opts = {
-      transparent_background = true, --透明
-      custom_highlights = function(colors)
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		opts = {
+			transparent_background = true, --透明
+			custom_highlights = function(colors)
         -- stylua: ignore
         return {
           LineNr     = { fg = colors.surface2 },
@@ -16,28 +16,28 @@ return {
           CurSearch  = { bg = colors.mauve },
           MatchParen = { bg = colors.mauve, fg = colors.base, bold = true },
         }
-      end,
-      integrations = {
-        barbar = true,
-        blink_cmp = true,
-        gitsigns = true,
-        mason = true,
-        noice = true,
-        nvimtree = true,
-        rainbow_delimiters = true,
-        snacks = {
-          enabled = true,
-          indent_scope_color = "flamingo", -- catppuccin color (eg. `lavender`) Default: text
-        },
-        which_key = true,
-        flash = true,
-        lsp_trouble = true,
-      },
-    },
-    config = function(_, opts)
-      require("catppuccin").setup(opts)
+			end,
+			integrations = {
+				barbar = true,
+				blink_cmp = true,
+				gitsigns = true,
+				mason = true,
+				noice = true,
+				nvimtree = true,
+				rainbow_delimiters = true,
+				snacks = {
+					enabled = true,
+					indent_scope_color = "flamingo", -- catppuccin color (eg. `lavender`) Default: text
+				},
+				which_key = true,
+				flash = true,
+				lsp_trouble = true,
+			},
+		},
+		config = function(_, opts)
+			require("catppuccin").setup(opts)
 
-      vim.cmd.colorscheme("catppuccin")
-    end,
-  },
+			vim.cmd.colorscheme("catppuccin")
+		end,
+	},
 }
