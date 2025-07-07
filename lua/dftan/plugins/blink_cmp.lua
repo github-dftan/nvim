@@ -54,7 +54,7 @@ return {
 		completion = {
 			documentation = {
 				auto_show = true,
-				auto_show_delay_ms = 500, --500ms后显示文档
+				auto_show_delay_ms = 0, --0ms后显示文档
 			},
 			keyword = {
 				-- 'prefix' will fuzzy match on the text before the cursor
@@ -78,7 +78,6 @@ return {
 				},
 			},
 		},
-
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
@@ -144,7 +143,7 @@ return {
 		cmdline = {
 			completion = {
 				menu = {
-					auto_show = function(ctx)
+					auto_show = function()
 						return vim.fn.getcmdtype() == ":"
 						-- enable for inputs as well, with:
 						-- or vim.fn.getcmdtype() == '@'

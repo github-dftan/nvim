@@ -24,3 +24,5 @@ vim.opt.listchars = {
 
 
 vim.o.winborder = "rounded" -- 设置窗口边框样式为圆角
+
+

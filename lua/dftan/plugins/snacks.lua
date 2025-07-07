@@ -1,4 +1,3 @@
-
 ---@alias snacks.Config table //消除@type snacks.Config警告
 return {
 	"folke/snacks.nvim",
@@ -9,26 +8,6 @@ return {
 		bigfile = { enabled = true },
 		dashboard = {
 			enabled = true,
-			preset = {
-				-- Used by the `header` section
--- 				header = [[
---
---                           ...      ...                  .:#=.       ..             .      .-*##*:.                       :++..                     
---                           -%%+:    .-@%=.          .+=.  :%@#:  ..+%@:             *@+..+@@@%%@@%.        ..            .=@%=.:##=.                
---                      ..   :%@%+.   .-@@#-.        .-%#-. .*@@=-%@@@%:.             :@@@@%+..:#%@@*.      +**=:..       .*@@+=#*%@@+.               
---                     .*#:  :%@@%-   .-@@@+.       .-%@#-:-=#@@@@%*=..               :@@%=.  .=+@@%+.     .%@@@#:.  ..-+.+@#-::.:@@@*:               
---                    .*@#:  .%@@@+-+*%@@@@+.    .:+%@@%#%@@%%@@%:..:-.          .++:+%@@%- ..:*%@@*+.     .=**-.:=+*%@%=..:#%%@-*@@@+.               
---                    -%@#=-+*%@@@@@@@@%@@%-.    .-%@@*......-@@@%%@@%-          .*@%%=%@%*#%:*#@@@=:      ..+*=.:*@@@*:. .*@*-:=%@@%-.               
---                    .*@@@@@@@@@@*-:..=@@*.         .:-=+#@@@@@@@@%+.           .*@%++%@@#-.*#@@@+=.       .+%=. .:+@@*+-.%%+.*@@@@*.                
---                      .:::..#@@@=.*%#=...           .=*#%##%@@#.               :#@%:.%@%=.*#@@@*=:.       ..  .-#%@@@@%#:%@@%#@@%*:                 
---                      .-*%=:%@@%=..#@@*:       .:-:.......:%@@-..........      .*%#%#%@@@@@@@@%=:.        .:-+#@+..:..  ..===+%@*.                  
---                      :%@*:-%@@%##%@@@@=.       .=%%%%#####@@%##########-         .:=%@@%%+*+=..          .-+++:.     :+***#=.=@%+.                 
---                      -@@@@@@@@@@@@%%@@*.         ..-++#%@@@@@@@@@@@@@@%-            .+@@%%#==++=+.                     .....=%@@#:                 
---                      ..-+###+-:... .+%=.                ............                ..=*@@@@@@@@#.                       .=%@@@#.                  
---                                                                                         .:=**#%#-.                         -*+:                    
---
--- ]],
-			},
 			sections = {
 				{ section = "header" },
 				{ section = "keys", padding = 1 },
@@ -36,11 +15,13 @@ return {
 				{ section = "startup" },
 			},
 		},
-		explorer = { enabled = true },
-		picker = {
-			enabled = true,
-		},
-		quickfile = { enabled = true },
+		-- explorer = {
+		-- 	enabled = false,
+		-- },
+		-- picker = {
+		-- 	enabled = true,
+		-- },
+		-- quickfile = { enabled = true },
 		-- statuscolumn = { enabled = true },
 		-- words = { enabled = true },
 		-- scope = { enabled = true },
@@ -66,8 +47,25 @@ return {
 		-- util ={enabled = true},
 		-- win ={enabled = true},
 		-- zen ={enabled = true},
+		previewers = {
+			toggles = {
+				follow = "f",
+				hidden = "h",
+				ignored = "i",
+				modified = "m",
+				regex = { icon = "R", value = false },
+			},
+			win = {
+				-- input window
+				input = {
+					keys = {
+						["<a-h>"] = { "toggle_hidden", mode = { "i", "n" } }, --隐藏文件显示或者隐藏
+						["<a-i>"] = { "toggle_ignored", mode = { "i", "n" } }, -- 显示或者隐藏忽视的文件
+					},
+				},
+			},
+		},
 	},
-
 	-- stylua: ignore
 	keys = {
 		-- find
