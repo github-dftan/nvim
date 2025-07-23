@@ -69,7 +69,14 @@ return {
 		}
 		table.insert(opts.sections.lualine_x, 1, macro_recording)
 		table.insert(opts.sections.lualine_c, copilot)
-
+		local function dap_status()
+			local dap = require("dap")
+			if dap.session() then
+				return " Debugging"
+			end
+			return ""
+		end
+		table.insert(opts.sections.lualine_c, dap_status)
 		require("lualine").setup(opts)
 	end,
 }

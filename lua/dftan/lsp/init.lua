@@ -9,15 +9,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
 		end
 
-		map("n", "gd", vim.lsp.buf.definition, "LSP: 跳转到定义")
-		map("n", "gD", vim.lsp.buf.declaration, "LSP: 跳转到声明")
-		map("n", "gi", vim.lsp.buf.implementation, "LSP: 跳转到实现")
-		map("n", "gr", vim.lsp.buf.references, "LSP: 跳转到引用")
-		map("n", "gt", vim.lsp.buf.type_definition, "LSP: 跳转到类型定义")
-		vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {
-			buffer = bufnr,
-			desc = "[LSP] Show diagnostic",
-		})
+		-- map("n", "gd", vim.lsp.buf.definition, "LSP: 跳转到定义")
+		-- map("n", "gD", vim.lsp.buf.declaration, "LSP: 跳转到声明")
+		-- map("n", "gi", vim.lsp.buf.implementation, "LSP: 跳转到实现")
+		-- map("n", "gr", vim.lsp.buf.references, "LSP: 跳转到引用")
+		-- map("n", "gt", vim.lsp.buf.type_definition, "LSP: 跳转到类型定义")
+		-- vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {
+		-- 	buffer = bufnr,
+		-- 	desc = "[LSP] Show diagnostic",
+		-- })
 	end,
 })
 
