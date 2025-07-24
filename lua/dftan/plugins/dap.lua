@@ -54,27 +54,23 @@ return {
 		},
 		config = function()
 			require("nvim-dap-virtual-text").setup() -- optional
-			local ok, noice = pcall(require, "noice")
-			if ok then
-				noice.setup()
-			end
 			require("dap")
 			local dap, dapui = require("dap"), require("dapui")
 
 			dap.listeners.before.attach.dapui_config = function()
-				require("lualine").hide() --关掉lualine不然调试按钮显示不出来
+				-- require("lualine").hide() --关掉lualine不然调试按钮显示不出来
 				dapui.open()
 			end
 			dap.listeners.before.launch.dapui_config = function()
-				require("lualine").hide()
+				-- require("lualine").hide()
 				dapui.open()
 			end
 			dap.listeners.before.event_terminated.dapui_config = function()
-				require("lualine").hide({ unhide = true })
+				-- require("lualine").hide({ unhide = true })
 				dapui.close()
 			end
 			dap.listeners.before.event_exited.dapui_config = function()
-				require("lualine").hide({ unhide = true })
+				-- require("lualine").hide({ unhide = true })
 				dapui.close()
 			end
 			-- customize UI layout
@@ -92,7 +88,7 @@ return {
 					},
 					{
 						position = "bottom",
-						size = 0.2,
+						size = 10,
 						elements = {
 							{ id = "repl", size = 0.2 },
 							{ id = "console", size = 0.5 },
@@ -100,7 +96,6 @@ return {
 					},
 				},
 			})
-
 			-- Custom breakpoint icons
 			vim.fn.sign_define(
 				"DapBreakpoint",
