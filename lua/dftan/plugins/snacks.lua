@@ -6,6 +6,7 @@ return {
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
+		animate = { enabled = true },
 		dashboard = {
 			enabled = true,
 			sections = {
@@ -17,13 +18,34 @@ return {
 			},
 		},
 		explorer = { enabled = true },
-		indent = { enabled = true },
+		indent = {
+			enabled = true,
+			chunk = {
+				-- when enabled, scopes will be rendered as chunks, except for the top-level scope which will be rendered as a scope.
+				enabled = true,
+			},
+		},
 		input = { enabled = true },
 		notifier = {
 			enabled = true,
 			timeout = 3000,
 		},
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			matcher = {
+				fuzzy = true, -- use fuzzy matching
+				smartcase = true, -- use smartcase
+				ignorecase = true, -- use ignorecase
+				sort_empty = false, -- sort results when the search string is empty
+				filename_bonus = true, -- give bonus for matching file names (last part of the path)
+				file_pos = true, -- support patterns like `file:line:col` and `file:line`
+				-- the bonusses below, possibly require string concatenation and path normalization,
+				-- so this can have a performance impact for large lists and increase memory usage
+				cwd_bonus = false, -- give bonus for matching files in the cwd
+				frecency = false, -- frecency bonus
+				history_bonus = false, -- give more weight to chronological order
+			},
+		},
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		-- scroll = { enabled = true },--平滑滚动
@@ -92,7 +114,7 @@ return {
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "VeryLazy",
 			callback = function()
-				Snacks.dim.enable() -- 启用暗淡未使用的文本
+				-- Snacks.dim.enable() -- 启用暗淡未使用的文本
 				Snacks.toggle.dim():map("<leader>tD")
 			end,
 		})
