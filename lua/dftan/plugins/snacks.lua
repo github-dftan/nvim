@@ -106,6 +106,9 @@ return {
         { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
         { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
 
+        --diagnostics
+        { "<leader>sd", function() require("snacks").picker.diagnostics() end, desc = "[Snacks] Diagnostics" },
+        { "<leader>sD", function() require("snacks").picker.diagnostics_buffer() end, desc = "[Snacks] Diagnostics buffer" },
 		-- Other
 		{ "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
 	},

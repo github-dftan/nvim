@@ -9,6 +9,7 @@ vim.opt.smartcase = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 
+vim.opt.undofile = true -- 启用撤销文件,退出后再进来可以进行撤销操作
 
 vim.opt.splitbelow = true -- 水平分割窗口时，新的窗口位于当前窗口下方
 vim.opt.splitright = true -- 垂直分割窗口时，新的窗口位于当前窗口右侧
