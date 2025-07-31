@@ -26,4 +26,6 @@ vim.opt.listchars = {
 
 vim.o.winborder = "rounded" -- 设置窗口边框样式为圆角
 
-
+if(vim.loop.os_uname().sysname == "Windows_NT") then
+  vim.o.shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell"
+end

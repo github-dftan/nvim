@@ -29,16 +29,99 @@ return {
 					},
 				},
 				{
-					name = "Attach to gdbserver :1234",
+					name = "Attach to gdbserver :2331",
 					type = "cppdbg",
 					request = "launch",
 					MIMode = "gdb",
-					miDebuggerServerAddress = "localhost:1234",
+					miDebuggerServerAddress = "localhost:2331",
 					miDebuggerPath = "/usr/bin/gdb",
 					cwd = "${workspaceFolder}",
 					program = function()
 						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 					end,
+				},
+				{
+					name = "debug by openocd",
+					type = "cppdbg",
+					request = "launch",
+					preLaunchTask = "build",
+					MIMode = "gdb",
+					miDebuggerServerAddress = "localhost:3333",
+					miDebuggerPath = "arm-none-eabi-gdb",
+					cwd = "${workspaceFolder}",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					stopAtEntry = false,
+					postRemoteConnectCommands = {
+						{
+							tex = function()
+								-- return "load" .. vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                                return "load"
+							end,
+						},
+						{
+							text = "monitor reset halt",
+						},
+						{
+							text = "monitor rtt stop",
+							ignoreFailures = true,
+						},
+						{
+							text = "monitor rtt server stop 9090",
+						},
+						{
+							text = "monitor rtt start 9090 0k",
+						},
+						{
+							text = 'monitor rtt setup 0x20000000 0x00000030 "SEGGER RTT"',
+						},
+						{
+							text = "monitor rtt start",
+						},
+					},
+					setupCommands = {
+						{
+							description = "Enable pretty-printing",
+							text = "-enable-pretty-printing",
+							ignoreFailures = true,
+						},
+					},
+				},
+
+				{
+					name = "debug by jlink",
+					type = "cppdbg",
+					request = "launch",
+					preLaunchTask = "build", -- 你可以在 tasks.json 或手动触发构建
+					MIMode = "gdb",
+					miDebuggerServerAddress = "localhost:2331", -- J-Link 默认端口
+					miDebuggerPath = "arm-none-eabi-gdb",
+					cwd = "${workspaceFolder}",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					stopAtEntry = false,
+					postRemoteConnectCommands = {
+						{
+							text = function()
+								return "load"
+							end,
+						},
+						{
+							text = "monitor reset",
+						},
+						{
+							text = "monitor halt",
+						},
+					},
+					setupCommands = {
+						{
+							description = "Enable pretty-printing",
+							text = "-enable-pretty-printing",
+							ignoreFailures = true,
+						},
+					},
 				},
 			}
 			dap.configurations.c = dap.configurations.cpp

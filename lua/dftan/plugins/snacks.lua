@@ -55,16 +55,28 @@ return {
 			notification = {
 				-- wo = { wrap = true } -- Wrap notifications
 			},
-			terminal = {
+			-- terminal = {
+			-- 	relative = "editor",
+			-- 	border = "rounded",
+			-- 	position = "float",
+			-- 	backdrop = 60, --不透明度
+			-- 	height = 0.9,
+			-- 	width = 0.9,
+			-- 	zindex = 50, --层级索引，数字越大越靠前（即更“浮”在前面）。50 是一个中等层级
+			-- },
+		},
+
+		terminal = {
+			win = {
+				position = "float",
 				relative = "editor",
 				border = "rounded",
-				position = "float",
-				backdrop = 60,
+				backdrop = 60, --不透明度
 				height = 0.9,
 				width = 0.9,
 				zindex = 50,
 			},
-		},
+		}, --层级索引，数字越大越靠前（即更“浮”在前面）。50 是一个中等层级} },
 		win = {
 			enabled = true,
 			input = {
@@ -77,8 +89,7 @@ return {
 	},
 	-- stylua: ignore
 	keys = {
-        { "<A-t>", function() require("snacks").terminal("powershell") end,
-            desc = "[Snacks] Toggle terminal", mode = {"n", "t"} },
+        { "<A-t>", function() require("snacks").terminal() end, desc = "[Snacks] Toggle terminal", mode = {"n", "t"} },
 		-- find
 		{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
 		{ "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
