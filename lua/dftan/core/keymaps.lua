@@ -18,3 +18,6 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set({ "n", "x", "o" }, "<S-H>", "^", { desc = "Start of line" })
 vim.keymap.set({ "n", "x", "o" }, "<S-L>", "$", { desc = "End of line" })
 
+
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "save" })
+
