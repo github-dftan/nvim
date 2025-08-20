@@ -31,7 +31,6 @@ return {
 		-- Automatically hide the tabline when there are this many buffers left.
 		-- Set to any value >=0 to enable.
 		auto_hide = 1,
-
 		-- Set the filetypes which barbar will offset itself for
 		-- sidebar_filetypes = {
 		-- 	NvimTree = true, -- Use the default values: {event = 'BufWinLeave', text = '', align = 'left'}
