@@ -93,7 +93,7 @@ return {
 					name = "debug by jlink",
 					type = "cppdbg",
 					request = "launch",
-					preLaunchTask = "build", -- 你可以在 tasks.json 或手动触发构建
+					preLaunchTask = "build", -- 可以在 tasks.json 或手动触发构建
 					MIMode = "gdb",
 					miDebuggerServerAddress = "localhost:2331", -- J-Link 默认端口
 					miDebuggerPath = "arm-none-eabi-gdb",

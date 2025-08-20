@@ -10,10 +10,10 @@ return {
 		--   If not available, we use `mini` as the fallback
 		-- {"rcarriga/nvim-notify", opts = {background_colour = "#000000"}}
 	},
-	keys = {
-		{ "<leader>sN", "<CMD>Noice pick<CR>", desc = "[Noice] Pick history messages" },
-		{ "<leader>N", "<CMD>Noice<CR>", desc = "[Noice] Show history messages" },
-	},
+	-- keys = {
+	-- 	{ "<leader>sN", "<CMD>Noice pick<CR>", desc = "[Noice] Pick history messages" },
+	-- 	{ "<leader>N", "<CMD>Noice<CR>", desc = "[Noice] Show history messages" },
+	-- },
 
 	opts = {
 		popupmenu = {
