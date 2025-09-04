@@ -106,7 +106,7 @@ return {
 		{ "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
 		{ "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
 		{ "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
-
+        { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
 		-- Top Pickers & Explorer
 		{ "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
 
@@ -120,8 +120,10 @@ return {
         --diagnostics
         { "<leader>sd", function() require("snacks").picker.diagnostics() end, desc = "[Snacks] Diagnostics" },
         { "<leader>sD", function() require("snacks").picker.diagnostics_buffer() end, desc = "[Snacks] Diagnostics buffer" },
-		-- Other
+		-- buff
 		{ "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
+		{ "<leader>bda", function() Snacks.bufdelete.all() end, desc = "Delete All Buffer" },
+		{ "<leader>bdo", function() Snacks.bufdelete.other() end, desc = "Delete other Buffer" },
 	},
 	init = function()
 		local Snacks = require("snacks")
