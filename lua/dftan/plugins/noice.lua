@@ -40,9 +40,9 @@ return {
 		},
 		routes = {
 			-- Hide search count
-			{ filter = { event = "msg_show", kind = "search_count" }, opts = { skip = true } },
-			-- Hide written message
-			{ filter = { event = "msg_show", kind = "" }, opts = { skip = true } },
+			-- { filter = { event = "msg_show", kind = "search_count" }, opts = { skip = true } },
+			-- -- Hide written message
+			-- { filter = { event = "msg_show", kind = "" }, opts = { skip = true } },
 		},
 	},
 }

@@ -53,19 +53,18 @@ return {
 		words = { enabled = true },
 		styles = {
 			notification = {
-				-- wo = { wrap = true } -- Wrap notifications
+				border = "rounded", -- 通知窗口的边框样式，"rounded" 表示圆角
+				zindex = 100, -- 通知窗口的层级，数值越大显示越靠上
+				ft = "text", -- 通知窗口的 filetype，设置为 "text" 防止默认 markdown 渲染导致内容错乱
+				wo = { -- 通知窗口的窗口选项
+					winblend = 5, -- 窗口透明度，数值越大越透明
+					wrap = false, -- 是否自动换行，false 表示不换行
+					conceallevel = 2, -- 隐藏级别，2 表示隐藏部分文本内容
+					colorcolumn = "", -- 颜色列设置，空字符串表示不显示颜色列
+				},
+				bo = { filetype = "snacks_notif" }, -- 通知窗口的 buffer 选项，设置 filetype 为 "snacks_notif"
 			},
-			-- terminal = {
-			-- 	relative = "editor",
-			-- 	border = "rounded",
-			-- 	position = "float",
-			-- 	backdrop = 60, --不透明度
-			-- 	height = 0.9,
-			-- 	width = 0.9,
-			-- 	zindex = 50, --层级索引，数字越大越靠前（即更“浮”在前面）。50 是一个中等层级
-			-- },
 		},
-
 		terminal = {
 			win = {
 				position = "float",
