@@ -1,5 +1,7 @@
 require("dftan/lsp/lua_ls")
 require("dftan/lsp/clangd")
+require("dftan/lsp/jsonls")
+require("dftan/lsp/cmake")
 
 -- vim.api.nvim_create_autocmd("LspAttach", {
 -- 	group = vim.api.nvim_create_augroup("my.lsp", { clear = true }),

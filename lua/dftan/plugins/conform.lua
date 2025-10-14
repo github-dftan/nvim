@@ -8,6 +8,16 @@ return {
 			lua = { "stylua" },
 			-- Conform will run multiple formatters sequentially
 			python = { "isort", "black" },
+			html = { "prettierd" },
+			css = { "prettierd" },
+			cmake = { "cmake_format" },
+			-- json = { "prettierd" },
+			json = { "jq" },
+			javascript = { "prettierd" },
+			typescript = { "prettierd" },
+			javascriptreact = { "prettierd" },
+			typescriptreact = { "prettierd" },
+			markdown = { "prettierd" },
 		},
 	},
 
