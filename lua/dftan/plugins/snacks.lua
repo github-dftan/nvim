@@ -7,17 +7,22 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		animate = { enabled = true },
+		image = { enabled = true },
+		lazygit = { enabled = false },
 		dashboard = {
-			enabled = true,
 			sections = {
-				{ section = "header" },
+				{ section = "terminal", cmd = "cowsay nvim 启动!!!", padding = 1 },
 				{ icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
 				{ icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
 				{ icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
 				{ section = "startup" },
 			},
 		},
-		explorer = { enabled = true },
+		explorer = {
+			enabled = true,
+			replace_netrw = true, -- 替换 netrw 文件浏览器
+			trash = true, -- 使用回收站删除文件
+		},
 		indent = {
 			enabled = true,
 			chunk = {
@@ -45,6 +50,32 @@ return {
 				frecency = false, -- frecency bonus
 				history_bonus = false, -- give more weight to chronological order
 			},
+			sources = {
+				explorer = {
+					finder = "explorer", -- 资源查找器类型，设为“explorer”资源管理器
+					sort = { fields = { "sort" } }, -- 表示按文件树的层级排序（保证树状结构的层级关系）。
+					supports_live = true, -- 支持实时过滤（输入关键词时动态更新文件列表）。
+					tree = true, -- 是否以树形结构显示
+					hidden = false, -- 是否显示隐藏文件
+					ignored = false, -- 是否忽略部分文件（false表示不忽略）
+					watch = true, -- 是否开启文件变化监听
+					diagnostics = true, -- 是否显示诊断信息（如错误、警告）
+					diagnostics_open = false, -- 是否默认展开诊断信息面板
+					git_status = true, -- 是否显示Git状态
+					git_status_open = false, -- 是否默认展开Git状态面板
+					git_untracked = true, -- 是否显示Git未跟踪文件
+					follow_file = true, -- 是否跟随当前文件定位
+					focus = "list", -- 初始焦点位置，"list" 表示默认聚焦在文件列表区域。
+					auto_close = false, -- 是否自动关闭资源管理器
+					jump = { close = false }, -- 跳转相关配置，跳转后是否关闭资源管理器
+					layout = { preset = "sidebar", preview = false }, -- 侧边栏布局（固定在屏幕一侧）表示是否显示预览窗格
+					-- layout = { layout = { position = "right" } }, -- 如果需要将资源管理器显示在右侧，可在配置中添加
+					formatters = {
+						file = { filename_only = true }, -- 文件名只显示文件名，不显示路径,tree模式下false无效
+						severity = { pos = "right" }, -- 诊断严重性显示在右侧
+					},
+				},
+			},
 		},
 		quickfile = { enabled = true },
 		scope = { enabled = true },
@@ -66,6 +97,7 @@ return {
 			},
 		},
 		terminal = {
+			enabled = true,
 			win = {
 				position = "float",
 				relative = "editor",
@@ -98,7 +130,7 @@ return {
 		{ "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
       -- Notification
         { "<leader>sn", function() require("snacks").picker.notifications() end, desc = "[Snacks] Notification history" },
-        { "<leader>n", function() require("snacks").notifier.show_history() end, desc = "[Snacks] Notification history" },
+        { "<leader>n",  function() require("snacks").notifier.show_history() end, desc = "[Snacks] Notification history" },
         { "<leader>un", function() require("snacks").notifier.hide() end, desc = "[Snacks] Dismiss all notifications" },
 		-- Grep
 		{ "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
@@ -107,7 +139,7 @@ return {
 		{ "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
         { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
 		-- Top Pickers & Explorer
-		{ "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+		{ "<leader>e",  function() Snacks.explorer() end, desc = "File Explorer" },
 
         --LSP
         { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },

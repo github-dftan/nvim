@@ -24,9 +24,8 @@ vim.opt.listchars = {
 	nbsp = "␣", -- 不间断空格（non-breakable space, NBSP）显示为 “␣”（特殊空格符号）
 }
 
-
 vim.o.winborder = "rounded" -- 设置窗口边框样式为圆角
 
 if(vim.loop.os_uname().sysname == "Windows_NT") then
-  vim.o.shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell"
+  vim.o.shell = "powershell"
 end
